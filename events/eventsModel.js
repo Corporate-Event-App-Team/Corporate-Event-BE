@@ -32,7 +32,7 @@ function findById(id) {
 
 async function add(event) {
     const{id} = await db('events').insert(event);
-    return findById(id);
+    return db('events');
 }
 
 function remove(id) {

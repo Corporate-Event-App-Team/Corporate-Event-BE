@@ -1,13 +1,14 @@
 const express = require('express')
 const Vendors = require('./vendorsModel')
-const router = require('express').Router();
-
+const router = require('express').Router()
+const authenticate = require('../auth/authenticate-middleware');
 
 router.get('/', async (req,res) => {
     try {
         const vendors = await Vendors.find(req.query);
         res.status(200).json(vendors);
     } catch(error) {
+        console.log(error)
         res.status(500).json({message: "Error retrieving vendors"})
     }
 })
@@ -53,12 +54,13 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async(req, res) => {
     try{
         const vendor = await Vendors.update(req.params.id, req.body)
-        if (hub) {
+        if (vendor) {
             res.status(200).json(vendor)
         } else {
             res.status(404).json({message: 'The vendor could not be found'})
         }
     }  catch (error) {
+        console.log(error);
         res.status(500).json({message: 'Error updating vendor'})
     }
  })

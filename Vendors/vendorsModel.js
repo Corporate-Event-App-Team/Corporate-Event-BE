@@ -16,13 +16,9 @@ module.exports = {
 
 
  function find(query) {
-    const { page = 1, limit = 2, sortby = 'id', sortdir = 'asc' } = query;
-    
-  
+    const {  sortby = 'id', sortdir = 'asc' } = query;
     let rows = db('vendors')
-      .orderBy(sortby, sortdir)
-      .limit(limit)
-      .page(page);
+      .orderBy(sortby, sortdir)    
       return rows;
   }
 
@@ -32,9 +28,8 @@ module.exports = {
       .first();
 }
 
-async function add(vendor) {
-    const{id} = await db('vendors').insert(vendor);
-    return findById(id);
+async function add() {
+    return db('vendors');
 }
 
 function remove(id) {
