@@ -2,9 +2,9 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const userDb = require('./authModel')
-const authenticate = require('../auth/authenticate-middleware');
-
-
+const authenticate = require('../auth/authenticate-middleware')
+const restricted = require('../auth/authenticate-middleware');
+require('dotenv').config();
 const router = express.Router();
 
 router.post('/register', (req, res) => {
@@ -29,8 +29,8 @@ router.post('/login', (req, res) => {
     .first()
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
-        const token = generateToken(user);
-        res.status(200).json({message: `Hi ${user.username}`, token})
+        const tokenHeader = generateToken(user);
+        res.status(200).json({message: `Hi ${user.username}`, tokenHeader})
       } else {
         res.status(401).json({message: 'Easy there, you cannot pass'})
       }
@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
       subject: user.id,
       username: user.username
     }
-    const secret = process.env.SECRET || "AliDaShizzyManizzy"
+    const secret = process.env.SECRET || "$$$$$$$"
   const options = {
     expiresIn: '1h'
   }
@@ -54,10 +54,10 @@ router.post('/login', (req, res) => {
   };
 
 
-router.get("/events", authenticate, (req, res) => {
+router.get("/events",  authenticate, (req, res) => {
     userDb.fetch()
     .then(events => {
-      res.send(events)
+      res.json(events);
     }) .catch( error => res.send(error));
 });
 

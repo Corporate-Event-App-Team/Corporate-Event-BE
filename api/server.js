@@ -2,13 +2,13 @@ const express = require('express')
 const server = express()
 const authenticate = require('../auth/authenticate-middleware')
 const eventsRouter = require("../events/eventsRouter")
-const authRouter = require('../auth/authRouter.js')
-const restriction =require("../auth/authenticate-middleware");
+const authRouter = require('../auth/authRouter.js');
+
 
 
 server.use(express.json())
 server.use('/api/auth', authRouter)
-server.use('/api/events' , authenticate ,restriction,  eventsRouter);
+server.use('/api/events' , authenticate , eventsRouter);
 
 
 server.get("/", (req, res) => {

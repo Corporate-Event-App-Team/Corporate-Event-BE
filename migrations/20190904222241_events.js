@@ -73,11 +73,11 @@ exports.up = function(knex ) {
 };
 
 exports.down = function(knex ) {
-  return knex
+  return knex.schema
   .dropTableIfExists('event_vendors')
   .dropTableIfExists('user_event')
   .dropTableIfExists('todo list')
   .dropTableIfExists('vendors')
   .dropTableIfExists('events')
-  .dropTableIfExists('users') ;  // Reverse order of which it was implemented to fall off correctly. 
+  .dropTableIfExists('users')   // Reverse order of which it was implemented to fall off correctly. 
 };

@@ -30,6 +30,7 @@ router.post("/", async(req, res) => {
         const event = await Events.add(req.body);
         res.status(201).json(event)
     } catch (error) {
+        console.log(error);
         res.status(500).json({message: "Error adding event"});
     }
 });

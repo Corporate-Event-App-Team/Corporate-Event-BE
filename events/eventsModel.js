@@ -14,20 +14,20 @@ module.exports = {
 
 function find(query) {
     const { page = 1, limit = 2, sortby = 'id', sortdir = 'asc' } = query;
-    const offset = limit * (page - 1); 
+    // const offset = limit * (page - 1); 
   
     let rows = db('events')
       .orderBy(sortby, sortdir)
       .limit(limit)
-      .offset(offset);
+      //.offset(offset);
   
     return rows;
   }
 
 function findById(id) {
     return db('events')
-      .where({id})
-      .first();
+      //.where({id})
+      //.first();
 }
 
 async function add(event) {
