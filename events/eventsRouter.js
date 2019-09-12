@@ -51,12 +51,13 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async(req, res) => {
     try{
         const event = await Events.update(req.params.id, req.body)
-        if (hub) {
+        if (event) {
             res.status(200).json(event)
         } else {
             res.status(404).json({message: 'The event could not be found'})
         }
     }  catch (error) {
+        console.log(error);
         res.status(500).json({message: 'Error updating event'})
     }
  })
