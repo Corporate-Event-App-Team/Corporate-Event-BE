@@ -1,7 +1,7 @@
-const knex = require("knex");
+const knex = require(knex);
 
 const config = require('../knexfile.js');
 
-const userDb = knex(config.development);
+const db = knex(config.development);
 
-module.exports = userDb;
+module.exports = db;
