@@ -2,7 +2,7 @@
 const express = require('express')
 const Vendors = require('./vendorsModel')
 const router = require('express').Router()
-const authenticate = require('../auth/authenticate-middleware');
+const restriction = require('../auth/authenticate-middleware');
 
 router.get('/', async (req,res) => {
     try {
@@ -67,7 +67,7 @@ router.put('/:id', async(req, res) => {
  })
 
 
- router.get("/vendors", authenticate, (req, res) => {
+ router.get("/vendors", restriction, (req, res) => {
     userDb.fetch()
     .then(vendors => {
       res.send(vendors)
