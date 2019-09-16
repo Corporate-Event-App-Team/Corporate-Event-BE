@@ -19,19 +19,6 @@ server.get('/', (req, res) => {
     res.status(200).json({message: 'Welcome To The Corporate Event Planner'});
 })
 
-//TESTING
-
-// server.get("/", (req, res) => {
-//     res.status(200).json({api:'running'});
-// });
-
-// server.post("/register", (req, res) => {
-//     res.status(201).json({status: "CREATED"});
-// });
-
-// server.post('/login', (req, res) => {
-//     res.status(200).json({status: 'OK'});
-// });
 
 module.exports = server;
 
