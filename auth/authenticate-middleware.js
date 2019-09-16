@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 
-module.exports = (req, res, next) => {
+module.exports = function restriction (req, res, next) {
   const tokenHeader = req.headers.authorization;
   if (tokenHeader) {
     jwt.verify(tokenHeader, "AliDaShizzyManizzy" , (err, decodedToken) => {

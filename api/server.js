@@ -4,6 +4,7 @@ const eventsRouter = require("../events/eventsRouter")
 const authRouter = require('../auth/aurthRouter')
 const vendorsRouter = require('../Vendors/vendorsRouter')
 const todoListRouter = require('../todoList/todoListRouter.js')
+const restriction = require('../auth/authenticate-middleware')
 const userRouter = require('../auth/userRouter.js');
 
 
