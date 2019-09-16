@@ -3,9 +3,9 @@ const server = express();
 const eventsRouter = require("../events/eventsRouter")
 const authRouter = require('../auth/aurthRouter')
 const vendorsRouter = require('../vendors/vendorsRouter')
-const todoListRouter = require('../todoList/todoListRouter.js')
+const todoListRouter = require('../todolist/todoListRouter')
 const restriction = require('../auth/authenticate-middleware')
-const userRouter = require('../auth/userRouter.js');
+const userRouter = require('../auth/userRouter');
 
 
 server.use(express.json())
