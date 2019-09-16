@@ -2,7 +2,6 @@
 exports.up = function(knex ) {
   return knex.schema.createTable('users', tbl => {
     tbl.increments('id')
-
     tbl
       .string('username', 255)
       .notNullable()
@@ -13,6 +12,13 @@ exports.up = function(knex ) {
 
   .createTable('events', tbl => {
     tbl.increments('id')
+    tbl.integer("events_id")
+    .unsigned()
+    .notNullable()
+    .references('id')
+    .inTable('events')
+    .onUpdate("CASCADE")
+    .onDelete("CASCADE")
     tbl.string("description").notNullable()
     tbl.integer('budget').notNullable();
 })
