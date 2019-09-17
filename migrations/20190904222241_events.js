@@ -58,6 +58,7 @@ exports.up = function(knex ) {
     .unsigned()
     .references("id")
     .inTable("events");
+ 
   })
 
   .createTable("event_vendors", tbl => {
