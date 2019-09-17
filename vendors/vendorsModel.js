@@ -28,8 +28,8 @@ module.exports = {
       .first();
 }
 
-async function add() {
-    return db('vendors');
+function add(vendor) {
+    return db('vendors').insert(vendor);
 }
 
 function remove(id) {
