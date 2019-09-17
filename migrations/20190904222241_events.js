@@ -6,7 +6,10 @@ exports.up = function(knex ) {
       .string('username', 255)
       .notNullable()
       .unique()
-    tbl.string('password', 255).notNullable();
+    tbl.string('password', 255).notNullable()
+    tbl.string("company", 255)
+    tbl.string("role", 255)
+    tbl.string("email", 255);
    
   })
 
@@ -38,10 +41,14 @@ exports.up = function(knex ) {
     tbl.string("ToDO item").notNullable()
     tbl.boolean("completed").notNullable().defaultTo("false")
     .unsigned()
-    .references("id")
-    .inTable("events");
-
-  })
+    tbl.integer('events_id')
+          .unsigned()
+          .notNullable()
+          .references('id')
+          .inTable('events')
+          .onUpdate('CASCADE')
+          .onDelete('CASCADE');
+   })
 
 
   .createTable("user_event", tbl => {
