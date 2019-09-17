@@ -5,8 +5,8 @@ exports.seed = function(knex) {
         // Inserts seed entries
         return knex('event_vendors').insert([
           {id: 1, events_id: 1, vendors_id: 1},
-          {id: 2, events_id: 1, vendors_id: 2},
-          {id: 3, events_id: 1, vendors_id: 3},
+          {id: 2, events_id: 2, vendors_id: 2},
+          {id: 3, events_id: 3, vendors_id: 3},
          
         ]);
       });
