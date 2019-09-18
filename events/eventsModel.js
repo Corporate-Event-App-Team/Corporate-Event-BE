@@ -26,12 +26,14 @@ function find(query) {
 
 function findById(id) {
     return db('events')
-     
+    .where({id})
+    .first();
 }
 
 async function add(event) {
     const{id} = await db('events').insert(event);
-    return db('events');
+    return db('events')
+    .where({id});
 }
 
 function remove(id) {
