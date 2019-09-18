@@ -1,5 +1,11 @@
 # Build Week: Corporate Event Planner 
 
+
+URL DEPLOYMENT 
+https://corporate-event-planner-build.herokuapp.com/
+
+
+
 AUTHENTICATION ENDPOINTS 
 
 
