@@ -1,0 +1,11 @@
+{
+  "name": "corporate-event-planner-api",
+  "version": "1.0.0",
+  "description": "corporate event planning app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anuoluwapo Apiti (Lambda School)",
+  "license": "MIT"
+}
